@@ -2,4 +2,4 @@
 
 docker build .
 
-docker run -p 8123:8888 <image-id>
+docker run -p 8123:8888 image-id
