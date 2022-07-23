@@ -1,0 +1,11 @@
+part3:
+
+> A scenario where the taxonomy is hierarchical and we want to classify for each of the levels. That is, each category can contain subcategories.
+
+In that case I would train a multi-class model for each primary category, similar to what I did with the One for all SVM on the current data, but one for each primary category, classifying the subcategories. 
+When the current model suggests a primary category, and by this one, a second model trained by this category and it's subcategories would infer the subs. Another more heavy approach would be using graph neural networks (GNN)
+
+> A scenario where we want to let our customers specify their own set of categories by providing a few (in the tens) samples of each category.
+
+In this case, natural language processing can play a major role by finding similar categories between different classes, improving the amount of data available for training. In this case we could make a similar approach as the previous question, but deciding which model to use based on similarity from the customer' category to another similar customer category that we already have a model trained for it. This approach would vaguely resemble a feature store, because we would automatically search for which model in our library we should use for this category or create and train a new one and register it to the store.
+For this purpose, it would also help if we ask our customer to input a description of the classification it is creating, so we have more textual information for finding a similar category on another customer' set.
